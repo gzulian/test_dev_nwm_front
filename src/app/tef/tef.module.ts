@@ -6,6 +6,11 @@ import { CreateAddresseeComponent } from './create-addressee/create-addressee.co
 import { TransferComponent } from './transfer/transfer.component';
 import { NewTransferComponent } from './new-transfer/new-transfer.component';
 import { TransfersComponent } from './transfers/transfers.component';
+import { TefComponent } from './tef/tef.component';
+import { LayoutModule } from '../layout/layout.module';
+import { NgbNavModule, NgbTypeahead, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { TypeaheadBasicComponent } from './typeahead-basic/typeahead-basic.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +18,18 @@ import { TransfersComponent } from './transfers/transfers.component';
     CreateAddresseeComponent,
     TransferComponent,
     NewTransferComponent,
-    TransfersComponent
+    TransfersComponent,
+    TefComponent,
+    TypeaheadBasicComponent
   ],
   imports: [
     CommonModule,
-    TefRoutingModule
+    TefRoutingModule,
+    LayoutModule,
+    NgbNavModule,
+    FormsModule,
+    NgbTypeaheadModule
+   
   ]
 })
 export class TefModule { }
