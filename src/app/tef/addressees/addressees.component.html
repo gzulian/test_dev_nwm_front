@@ -1,0 +1,41 @@
+
+
+<div class="card text-center">
+    <div class="card-header">
+        Destinatarios
+        <button class="float-start btn btn-info" *ngIf="newAdd" (click)="newAddressee(false)">
+            <em i-bs name="alarm-fill"></em><- Volver </button>
+        <button class="float-end btn btn-primary" *ngIf="!newAdd" (click)="newAddressee(true)">
+            <em i-bs name="alarm-fill"></em>Nuevo </button>
+    </div>
+    <div class="card-body">
+        <br>
+        
+        <br>
+        <br>
+        <table class="table" *ngIf="!newAdd">
+            <thead>
+              <tr>
+                <th scope="col">Rut</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Banco</th>
+                <th scope="col">Cuenta</th>
+                <th scope="col">Ver</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <th scope="row">1-9</th>
+                <th scope="row">TEST</th>
+                <td>ESTADO</td>
+                <td>1236553-0003-002</td>
+                <td>Ver</td>
+              </tr>
+            </tbody>
+        </table>
+        <app-create-addressee *ngIf="newAdd"></app-create-addressee>
+    </div>
+    <div class="card-footer text-muted">
+    
+    </div>
+</div>

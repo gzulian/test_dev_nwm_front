@@ -11,6 +11,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { NgbNavModule, NgbTypeahead, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TypeaheadBasicComponent } from './typeahead-basic/typeahead-basic.component';
 import { FormsModule } from '@angular/forms';
+import { AddresseesComponent } from './addressees/addressees.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     NewTransferComponent,
     TransfersComponent,
     TefComponent,
-    TypeaheadBasicComponent
+    TypeaheadBasicComponent,
+    AddresseesComponent
   ],
   imports: [
     CommonModule,

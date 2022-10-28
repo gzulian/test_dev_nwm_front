@@ -14,5 +14,9 @@ export class TransfersComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  newAdd:boolean = false;
+  newTransfer(show:boolean):void{
+    this.newAdd  = show;
+  }
 
 }

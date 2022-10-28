@@ -1,21 +1,47 @@
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Destinatario</th>
-      <th scope="col">Rut</th>
-      <th scope="col">Monto</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Ver</th>
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr>
-      <th scope="row">Chico Mark</th>
-      <th scope="row">Rut</th>
-      <td>$300.0000</td>
-      <td>12-03-2020</td>
-      <td>Ver</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="card text-center">
+    <div class="card-header">
+        Transferencias 
+        <button class="float-start btn btn-info" *ngIf="newAdd" (click)="newTransfer(false)">
+          <em i-bs name="alarm-fill"></em><- Volver </button>
+        <button class="float-end btn btn-primary" (click)="newTransfer(true)">
+          <em i-bs name="alarm-fill"></em>Nueva </button>
+    </div>
+    <div class="card-body">
+        <br>
+        <div class="row"  >
+            <div class="col-md-6">
+                <app-typeahead-basic *ngIf="!newAdd"> </app-typeahead-basic>
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+        
+        <table class="table" *ngIf="!newAdd">
+            <thead>
+              <tr>
+                <th scope="col">Destinatario</th>
+                <th scope="col">Rut</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Ver</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <th scope="row">Chico Mark</th>
+                <th scope="row">Rut</th>
+                <td>$300.0000</td>
+                <td>12-03-2020</td>
+                <td>Ver</td>
+              </tr>
+            </tbody>
+        </table>
+        <app-new-transfer *ngIf="newAdd"></app-new-transfer>
+    </div>
+    <div class="card-footer text-muted">
+    
+    </div>
+</div>

@@ -9,41 +9,19 @@
                 <li ngbNavItem>
                 <a ngbNavLink>Transferencias</a>
                 <ng-template ngbNavContent>
-                    <div class="card text-center">
-                        <div class="card-header">
-                            Transferencias
-                        </div>
-                        <div class="card-body">
-                            <br>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <app-typeahead-basic> </app-typeahead-basic>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="float-end btn btn-primary">
-                                        <em i-bs name="alarm-fill"></em>Nueva </button>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <router-outlet></router-outlet>
-                        </div>
-                        <div class="card-footer text-muted">
-                        
-                        </div>
-                    </div>
+                   <app-transfers></app-transfers>
                 </ng-template>
                 </li>
                 <li ngbNavItem>
                 <a ngbNavLink>Destinatarios</a>
-                <ng-template ngbNavContent>Destinatarios</ng-template>
+                <ng-template ngbNavContent>
+                    <app-addressees></app-addressees>
+                    
+                </ng-template>
                 </li>
             </ul>
-            <div [ngbNavOutlet]="nav"></div>              
-              
-           
+            <div [ngbNavOutlet]="nav"></div>
         </main>
-        
-        
     </div>
 </div>
+<!-- router-outlet></router-outlet -->
