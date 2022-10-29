@@ -10,7 +10,7 @@ import { TefComponent } from './tef/tef.component';
 import { LayoutModule } from '../layout/layout.module';
 import { NgbNavModule, NgbTypeahead, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TypeaheadBasicComponent } from './typeahead-basic/typeahead-basic.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AddresseesComponent } from './addressees/addressees.component';
 
 
@@ -30,8 +30,8 @@ import { AddresseesComponent } from './addressees/addressees.component';
     LayoutModule,
     NgbNavModule,
     FormsModule,
-    NgbTypeaheadModule
-   
+    NgbTypeaheadModule,
+    ReactiveFormsModule   
   ]
 })
 export class TefModule { }

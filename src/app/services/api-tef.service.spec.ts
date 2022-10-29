@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AwsCognitoService } from './aws-cognito.service';
+import { ApiTefService } from './api-tef.service';
 
-describe('AwsCognitoService', () => {
-  let service: AwsCognitoService;
+describe('ApiTefService', () => {
+  let service: ApiTefService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AwsCognitoService);
+    service = TestBed.inject(ApiTefService);
   });
 
   it('should be created', () => {

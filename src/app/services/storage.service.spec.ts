@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AwsAtlasService } from './aws-atlas.service';
+import { StorageService } from './storage.service';
 
-describe('AwsAtlasService', () => {
-  let service: AwsAtlasService;
+describe('StorageService', () => {
+  let service: StorageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AwsAtlasService);
+    service = TestBed.inject(StorageService);
   });
 
   it('should be created', () => {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiTefService } from 'src/app/services/api-tef.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 
 @Component({
@@ -10,9 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransfersComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private apiService:ApiTefService, private storageService:StorageService) { }
+  userData:any;
   ngOnInit(): void {
+    this.userData = JSON.parse(this.storageService.getUserData());
+  }
+  ngAfterContentInit():void{
   }
   newAdd:boolean = false;
   newTransfer(show:boolean):void{

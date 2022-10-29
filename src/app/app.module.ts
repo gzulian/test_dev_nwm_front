@@ -8,7 +8,9 @@ import { LoginComponent } from './components/login/login.component';
 import { LayoutModule } from './layout/layout.module';
 
 import { NgxBootstrapIconsModule, alarm, alarmFill, alignBottom } from 'ngx-bootstrap-icons';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ApiTefService } from './services/api-tef.service';
 
 const icons = {
   alarm,
@@ -26,10 +28,12 @@ const icons = {
     AppRoutingModule,
     NgbModule,
     LayoutModule,
-    NgbTypeaheadModule
+    NgbTypeaheadModule,
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [ApiTefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

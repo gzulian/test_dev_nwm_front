@@ -19,22 +19,25 @@
             </div>
         </div>
         
-        <table class="table" *ngIf="!newAdd">
+        <table id="table" class="table" *ngIf="!newAdd" >
+         
             <thead>
               <tr>
                 <th scope="col">Destinatario</th>
                 <th scope="col">Rut</th>
+                <th scope="col">Cuenta</th>
                 <th scope="col">Monto</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Ver</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr>
-                <th scope="row">Chico Mark</th>
-                <th scope="row">Rut</th>
-                <td>$300.0000</td>
-                <td>12-03-2020</td>
+              <tr  *ngFor="let item of userData.transfers">
+                <th scope="row">{{item.addressee_name}}</th>
+                <th scope="row">{{item.addressee_rut}}</th>
+                <th scope="row">{{item.addressee_account}}</th>
+                <th scope="row">{{item.amount | number}}</th>
+                <th scope="row">{{item.createdAt | date}}</th>
                 <td>Ver</td>
               </tr>
             </tbody>

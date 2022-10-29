@@ -1,7 +1,10 @@
 <h5 class="card-title">Nueva Transferencia de fondos</h5>
-1- Destinatarios
+<h6 class="card-title">El saldo en tu cuenta es:</h6>
+<h6> $<em>{{this.current_balance|number}}</em> </h6>
+<br>
+<!-- 1- Destinatarios
 2- Ingreso 
-3- Ver transferencia 
+3- Ver transferencia  -->
 <table class="table" *ngIf="steps[0]" >
     <thead>
         <tr>
@@ -13,21 +16,45 @@
         </tr>
     </thead>
     <tbody class="table-group-divider">
-        <tr (click)="selectAddressee('1-9')" >
-            <th scope="row">1-9</th>
-            <th scope="row">TEST</th>
-            <td>ESTADO</td>
-            <td>1236553-0003-002</td>
-            <td>Ver</td>
+        <tr *ngFor="let item of userData.addressees" (click)="selectAddressee(item.rut)" >
+            <th scope="row">{{item.rut}}</th>
+            <th scope="row">{{item.name}}</th>
+            <td>{{item.bank}}</td>
+            <td>{{item.account}}</td>
+            <td>Seleccionar</td>
         </tr>
     </tbody>
 </table>
 
 <div class="row" id="step2"  *ngIf="steps[1]">
-    <form>
-        $<input type="number" placeholder="45454">
-        <button (click)="doTransfer()" >Transferir</button>
-    </form>    
+    <h6>Destinatario: {{addressee_selected.name}}</h6>
+    <p>RUT: {{addressee_selected.rut}}</p>
+    <p>Email: {{addressee_selected.email}}</p>
+    <p>Banco: {{addressee_selected.bank}}</p>
+    <p>N° Cuenta: {{addressee_selected.account}}</p>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+
+                <div class="input-group input-group-sm mb-3 ">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                    <input 
+                        formControlName="amount"
+                        type="number"
+                        class="form-control" 
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{ 'is-invalid': submitted && f['amount'].errors }"
+                    >
+                </div>
+        
+                <button class="btn btn-success" type="submit" >Transferir</button>
+            </form>    
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+   
 </div>
 
 <div class="row" id="step3"  *ngIf="steps[2]">

@@ -4,32 +4,60 @@
                 
             </div>
             <div class="col-md-6">
-                <form id="newAddreess" method="post">  
+                <form [formGroup]="addresseeForm" (ngSubmit)="onSubmit()">
                     <div class="mb-3 ">
-                        <label for="rutInput" class="form-label">Rut</label>
-                        <input type="text" class="form-control" id="rutInput" placeholder="17731113-8">
+                        <label for="rutInput" class="form-label">* Rut</label>
+                        <input 
+                            formControlName="rut" 
+                            type="text"
+                            class="form-control" id="rutInput" placeholder="17731113-8"
+                            [ngClass]="{ 'is-invalid': submitted && f['rut'].errors }"    
+                        >
+                        <div *ngIf="submitted && f['rut'].errors" class="invalid-feedback">
+                            <div *ngIf="f['rut'].errors['required']">Rut is requerido</div>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="nameInput" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nameInput" placeholder="Fernando Ayala">
+                        <label for="nameInput" class="form-label">* Nombre</label>
+                        <input formControlName="name" type="text" class="form-control" id="nameInput" placeholder="Fernando Ayala"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }">
+                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                            <div *ngIf="f['name'].errors['required']">Nombre is requerido</div>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+                        <label for="emailInput" class="form-label">* Email</label>
+                        <input formControlName="email" type="email" class="form-control" id="emailInput" placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                            <div *ngIf="f['email'].errors['required']">Email es requerido</div>
+                            <div *ngIf="f['email'].errors['email']">Email es invalido</div>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneInput" class="form-label">Teléfono</label>
-                        <input type="number" class="form-control" id="phoneInput" placeholder="56 984632112">
+                        <label for="phoneInput" class="form-label">* Teléfono</label>
+                        <input formControlName="phone" type="number" class="form-control" id="phoneInput" placeholder="56 984632112"
+                        [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
+                        <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                            <div *ngIf="f['phone'].errors['required']">Teléfono is requerido</div>
+                          
+                          </div>
                     </div>
                     <div class="mb-3">
-                        <label for="bkInput" class="form-label">Banco de destino</label>
-                        <select class="form-control" id="bkInput" >
+                        <label for="bkInput" class="form-label">* Banco de destino</label>
+                        <select formControlName="bank" class="form-control" id="bkInput" [ngClass]="{ 'is-invalid': submitted && f['bank'].errors }">
                             <option>BCO ESTADO</option>
                         </select>
+                        <div *ngIf="submitted && f['bank'].errors" class="invalid-feedback">
+                            <div *ngIf="f['bank'].errors['required']">Banco es requrido</div>
+                          
+                          </div>
                     </div>
                     <div class="mb-3">
-                        <label for="accountInput" class="form-label">N° Cuenta</label>
-                        <input type="number" class="form-control" id="accountInput" placeholder="17731113-8">
+                        <label for="accountInput" class="form-label">* N° Cuenta</label>
+                        <input  formControlName="account" type="number" class="form-control" id="accountInput" placeholder="177311138" [ngClass]="{ 'is-invalid': submitted && f['account'].errors }" >
+                        <div *ngIf="submitted && f['account'].errors" class="invalid-feedback">
+                            <div *ngIf="f['account'].errors['required']">Cuenta es requerida</div>  
+                        </div>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="form-control btn btn-success" id="btnCreate" >Crear destinatario</button>
